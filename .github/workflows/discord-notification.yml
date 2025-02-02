@@ -1,20 +1,16 @@
 name: Discord Notification
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Send Discord notification
-        uses: Ilshid/notify-discord@v1
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_MESSAGE: "Changes pushed to master branch!"      
-          
+    - name: Send Discord Notification
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.WEB_HOOK }}
+      run: |
+        curl -H "Content-Type: application/json" \
+             -X POST \
+             -d "{\"content\": \"New push event in repository: $GITHUB_REPOSITORY by $GITHUB_ACTOR\"}" \
+             $DISCORD_WEBHOOK_URL
