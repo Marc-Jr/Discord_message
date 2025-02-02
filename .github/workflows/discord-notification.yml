@@ -16,5 +16,5 @@ jobs:
         uses: Ilshid/notify-discord@v1
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_MESSAGE: "Changes pushed to master branch!"
+          DISCORD_MESSAGE: "Changes pushed to master branch!"      
           
