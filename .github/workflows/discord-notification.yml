@@ -1,4 +1,4 @@
-name: Discord Notification
+name: Discord_Notification
 
 on:
   push:
@@ -17,3 +17,4 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_MESSAGE: "Changes pushed to master branch!"
+          
